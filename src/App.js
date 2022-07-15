@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Route, Routes } from "react-router-dom";
+import { Container } from "./components/global-components/container";
+import { FeedbackDetail } from "./modules/feedback-detail";
+import { FeedbackModal } from "./modules/feedbackModal";
+import { Suggestion } from "./modules/suggestions";
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Routes>
+        <Route path="/" element={<Suggestion />} />
+        <Route path="feedback-detail/:id" element={<FeedbackDetail />} />
+        <Route path="new-feedback" element={<FeedbackModal />} />
+        <Route path="*" element={<Suggestion />} />
+      </Routes>
+    </Container>
   );
 }
 

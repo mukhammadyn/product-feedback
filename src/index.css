@@ -1,13 +1,99 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap');
+
+/* variables */
+:root {
+  --font-fm: 'Jost', 'Arial', sans-serif;
+  --font-bolder: 700;
+  --font-bold: 600;
+  --font-normal: 400;
+
+  --font-primary-size: 15px;
+  --font-primary-lh: 22px;
+  --font-secondary-size: 16px;
+  --font-secondary-lh: 23px;
+  --font-bold-size: 13px;
+  --font-bold-lh: 19px;
+
+  --font-sm-bolder-size: 14px; 
+  --font-sm-bolder-lh: 20px; 
+  --font-md-bolder-size: 18px; 
+  --font-md-bolder-lh: 26px; 
+  --font-lg-bolder-size: 20px; 
+  --font-lg-bolder-lh: 29px; 
+  --font-xl-bolder-size: 24px; 
+  --font-xl-bolder-lh: 35px; 
+
+
+  --font-primary-style: normal var(--font-normal) var(--font-primary-size)/var(--font-primary-lh) var(--font-fm);
+  --font-secondary-style: normal var(--font-normal) var(--font-secondary-size)/var(--font-secondary-lh) var(--font-fm);
+  --font-bold-style: normal var(--font-bold) var(--font-bold-size)/var(--font-bold-lh) var(--font-fm);
+  --font-bolder-xl-style: normal var(--font-bolder) var(--font-xl-bolder-size)/var(--font-xl-bolder-lh) var(--font-fm);
+  --font-bolder-lg-style: normal var(--font-bolder) var(--font-lg-bolder-size)/var(--font-lg-bolder-lh) var(--font-fm);
+  --font-bolder-md-style: normal var(--font-bolder) var(--font-md-bolder-size)/var(--font-md-bolder-lh) var(--font-fm);
+  --font-bolder-sm-style: normal var(--font-bolder) var(--font-sm-bolder-size)/var(--font-sm-bolder-lh) var(--font-fm);
+
+  --color-primary: #3A4374;
+  --color-lighter: rgb(100, 113, 150, 0.75);
+
+  --color-disabled: rgb(89, 94, 109);
+
+  --color-button-singapore: #AD1FEA;
+  --color-button-singapore-hover: #C75AF6;
+  --color-button-rainbow: #4661E6;
+  --color-button-rainbow-hover: #7C91F9;
+  --color-button-jewel: #3A4374;
+  --color-button-jewel-hover: #656EA3;
+  --color-button-blood: #D73737;
+  --color-button-blood-hover: #E98888;
+  --color-button-raven: #373F68;
+  --color-button-blood-hover: #E98888;
+  --color-button-ocean: #647196;
+
+  --color-link: #4661E6;
+
+  --color-light: #fff;
+  --color-bg: #F7F8FD;
+
+  --primary-gradient: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%);
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* GENERAL */
+html {
+  box-sizing: border-box;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  padding-top: 94px;
+  font: var(--font-primary-style);
+  color: var(--color-primary);
+  background-color: var(--color-bg);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input:focus,
+textarea:focus {
+  outline: 1px solid var(--color-button-rainbow);
+}
+
+#root {
+  flex-grow: 1;
 }
