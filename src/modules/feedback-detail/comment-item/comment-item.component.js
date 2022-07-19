@@ -13,34 +13,28 @@ import {
 } from "./comment-item.style";
 
 export const CommentItemComponent = ({ comment }) => {
-
-  const {user, content, replies} = comment
-
+  const { user, content, replies, id } = comment;
   return (
-    <CommentItem>
+    <CommentItem data-id={id}>
       <CommentItemInner>
         <UserAvatar src={user.image} width="40" height="40" />
         <CommentItemContent>
           <CommentItemContentTop>
             <CommentItemHeading>
               {user.name}
-              <CommentItemNickname>
-                @{user.username}
-              </CommentItemNickname>
+              <CommentItemNickname>@{user.username}</CommentItemNickname>
             </CommentItemHeading>
-            <CommentItemReplyBtn data-user={user.username}>
+            <CommentItemReplyBtn data-id={id} data-user={user.username}>
               Reply
             </CommentItemReplyBtn>
           </CommentItemContentTop>
-          <CommentItemContentMessage>
-            {content}
-          </CommentItemContentMessage>
+          <CommentItemContentMessage>{content}</CommentItemContentMessage>
         </CommentItemContent>
       </CommentItemInner>
       {replies && (
         <CommentList>
-          {comment.replies.map(({user, replyingTo, content}, i) => (
-            <CommentItem key={i}>
+          {comment.replies.map(({ user, replyingTo, content, id }) => (
+            <CommentItem key={id}>
               <CommentItemInner>
                 <UserAvatar src={user.image} width="40" height="40" />
                 <CommentItemContent>

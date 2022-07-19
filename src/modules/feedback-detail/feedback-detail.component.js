@@ -22,7 +22,7 @@ export const FeedbackDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const [repliedUser, setRepliedUser] = useState("")
+  const [repliedUser, setRepliedUser] = useState({})
 
   useEffect(() => {
     dispatch(getFeedbacks());
@@ -44,8 +44,11 @@ export const FeedbackDetail = () => {
   const commentsLength = comments?.reduce((prev, current) => current.replies ? prev += current.replies?.length + 1 : prev += 1, 0)
 
   const handleCommentOnclick = (e) => {
-    if(e.target.dataset.user) {
-      setRepliedUser(e.target.dataset.user)
+    const event = e.target
+    const id = event.closest('[data-id]').dataset.id
+
+    if(event.dataset.user) {
+      setRepliedUser({username: event.dataset.user, id})
     }
   }
 
@@ -70,11 +73,11 @@ export const FeedbackDetail = () => {
         <CommentsHeading>{commentsLength} Comments</CommentsHeading>
         <CommentList onClick={handleCommentOnclick}>
           {
-            comments?.map(comment => <CommentItemComponent key={comment.id} comment={comment} />)
+            comments?.map(comment => <CommentItemComponent id={comment.id} key={comment.id} comment={comment} />)
           }
         </CommentList>
       </Comments>
-      <CommentForm dataUserName={repliedUser} repliedUser={repliedUser} id={id} setRepliedUser={setRepliedUser} />
+      <CommentForm dataUserName={repliedUser.username} repliedUser={repliedUser} id={id} setRepliedUser={setRepliedUser} />
     </FeedbackDetailMain>
   );
 };

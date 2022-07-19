@@ -21,7 +21,19 @@
             "image": "https://raw.githubusercontent.com/mukhammadyn/product-images/main/user-images/image-suzanne.jpg",
             "name": "Suzanne Chang",
             "username": "upbeat1811"
-          }
+          },
+          "replies": [
+            {
+              "content": "birnima komment",
+              "id": "8fc35f9a-1a6e-4956-8536-a2ec2974d36f",
+              "replyingTo": "upbeat1811",
+              "user": {
+                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
+                "name": "You",
+                "username": "unnamed"
+              }
+            }
+          ]
         },
         {
           "id": 2,
@@ -30,7 +42,70 @@
             "image": "https://raw.githubusercontent.com/mukhammadyn/product-images/main/user-images/image-thomas.jpg",
             "name": "Thomas Hood",
             "username": "brawnybrave"
-          }
+          },
+          "replies": [
+            {
+              "content": "birnima komment2",
+              "id": "de2b29d9-105d-455b-aeb8-3713b4320a41",
+              "replyingTo": "brawnybrave",
+              "user": {
+                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
+                "name": "You",
+                "username": "unnamed"
+              }
+            },
+            {
+              "content": "Hi",
+              "id": "cca00f44-f548-4a83-9719-e5c4cdb3311a",
+              "replyingTo": "brawnybrave",
+              "user": {
+                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
+                "name": "You",
+                "username": "unnamed"
+              }
+            },
+            {
+              "content": "Hello",
+              "id": "eb3dce08-1faf-4281-ae9c-3f941f2a9c55",
+              "replyingTo": "unnamed",
+              "user": {
+                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
+                "name": "You",
+                "username": "unnamed"
+              }
+            }
+          ]
+        },
+        {
+          "id": "c4b86fb6-033d-4a34-b2bf-ac968fa9e691",
+          "content": "Birnima komment",
+          "user": {
+            "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
+            "name": "You",
+            "username": "unnamed"
+          },
+          "replies": [
+            {
+              "content": "Nima gap",
+              "id": "b1c9b452-1310-45f8-a560-041a685e4570",
+              "replyingTo": "unnamed",
+              "user": {
+                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
+                "name": "You",
+                "username": "unnamed"
+              }
+            },
+            {
+              "content": "Tinch",
+              "id": "5bbe8430-eb57-45eb-9a7f-dad0807569fb",
+              "replyingTo": "unnamed",
+              "user": {
+                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
+                "name": "You",
+                "username": "unnamed"
+              }
+            }
+          ]
         }
       ]
     },
@@ -63,26 +138,6 @@
               }
             },
             {
-              "content": "aaaaaa",
-              "id": "8bee6ea8-af99-4631-b4bf-7cdd6095111b",
-              "replyingTo": "hexagon.bestagon",
-              "user": {
-                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
-                "name": "You",
-                "username": "unnamed"
-              }
-            },
-            {
-              "content": "abc",
-              "id": "f1276de2-a1c6-4f33-b0c2-4bc7604a3106",
-              "replyingTo": "hexagon.bestagon",
-              "user": {
-                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
-                "name": "You",
-                "username": "unnamed"
-              }
-            },
-            {
               "content": "Fikrizga to'laqonli qo'shilaman aka",
               "id": "5c76f807-5c33-4a31-8080-dc9d8dcf2318",
               "replyingTo": "hexagon.bestagon",
@@ -95,46 +150,6 @@
             {
               "content": "Qonday aka?",
               "id": "15852c87-046e-4c18-b9ac-6e7d6a4c68da",
-              "replyingTo": "hexagon.bestagon",
-              "user": {
-                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
-                "name": "You",
-                "username": "unnamed"
-              }
-            },
-            {
-              "content": "Bosin aka gazini",
-              "id": "256b8a5f-1103-4215-ac1d-a5f9f2ae1055",
-              "replyingTo": "hexagon.bestagon",
-              "user": {
-                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
-                "name": "You",
-                "username": "unnamed"
-              }
-            },
-            {
-              "content": "Assdd",
-              "id": "0d54c3d9-4c10-4d85-8d4a-4b91e5a8b821",
-              "replyingTo": "hexagon.bestagon",
-              "user": {
-                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
-                "name": "You",
-                "username": "unnamed"
-              }
-            },
-            {
-              "content": "aaa",
-              "id": "ce0dd4b5-85d3-455a-a2ac-83c2f1f3c533",
-              "replyingTo": "hexagon.bestagon",
-              "user": {
-                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
-                "name": "You",
-                "username": "unnamed"
-              }
-            },
-            {
-              "content": "ablax",
-              "id": "2c21df75-a3be-4ae7-98cf-086669125886",
               "replyingTo": "hexagon.bestagon",
               "user": {
                 "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
@@ -155,6 +170,7 @@
           "replies": [
             {
               "content": "While waiting for dark mode, there are browser extensions that will also do the job. Search for 'dark theme' followed by your browser. There might be a need to turn off the extension for sites with naturally black backgrounds though.",
+              "id": "123456789-987654321-1122",
               "replyingTo": "hummingbird1",
               "user": {
                 "image": "https://raw.githubusercontent.com/mukhammadyn/product-images/main/user-images/image-anne.jpg",
@@ -164,11 +180,22 @@
             },
             {
               "content": "Good point! Using any kind of style extension is great and can be highly customizable, like the ability to change contrast and brightness. I'd prefer not to use one of such extensions, however, for security and privacy reasons.",
+              "id": "123456789-987654321-1123",
               "replyingTo": "annev1990",
               "user": {
                 "image": "https://raw.githubusercontent.com/mukhammadyn/product-images/main/user-images/image-ryan.jpg",
                 "name": "Ryan Welles",
                 "username": "voyager.344"
+              }
+            },
+            {
+              "content": "Salom",
+              "id": "59e2c19d-e618-42f9-a6de-c4491496a425",
+              "replyingTo": "voyager.344",
+              "user": {
+                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
+                "name": "You",
+                "username": "unnamed"
               }
             }
           ]
@@ -180,7 +207,19 @@
             "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
             "name": "You",
             "username": "unnamed"
-          }
+          },
+          "replies": [
+            {
+              "content": "O'naqay",
+              "id": "077726e8-e575-4313-884b-0dee33f530b9",
+              "replyingTo": "unnamed",
+              "user": {
+                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
+                "name": "You",
+                "username": "unnamed"
+              }
+            }
+          ]
         },
         {
           "id": "b8d4c8a8-31fd-4f82-b3e1-85386752abfa",
@@ -271,6 +310,7 @@
           "replies": [
             {
               "content": "Bumping this. It would be good to have a tab with a feed of people I follow so it's easy to see what challenges they’ve done lately. I learn a lot by reading good developers' code.",
+              "id": "123456789-987654321-1124",
               "replyingTo": "arlen_the_marlin",
               "user": {
                 "image": "https://raw.githubusercontent.com/mukhammadyn/product-images/main/user-images/image-zena.jpg",
@@ -418,6 +458,7 @@
           "replies": [
             {
               "content": "Me too! I'd also love to see celebrations at specific points as well. It would help people take a moment to celebrate their achievements!",
+              "id": "123456789-987654321-1125",
               "replyingTo": "arlen_the_marlin",
               "user": {
                 "image": "https://raw.githubusercontent.com/mukhammadyn/product-images/main/user-images/image-suzanne.jpg",

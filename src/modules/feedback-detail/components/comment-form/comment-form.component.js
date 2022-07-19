@@ -29,15 +29,15 @@ export const CommentForm = ({ dataUserName, repliedUser, setRepliedUser, id }) =
       setCharLimit(MAX_LENGTH - comment.length);
     }
 
-    if (repliedUser && !comment.match(repliedUser)) {
-      setRepliedUser("");
+    if (repliedUser.username && !comment.match(repliedUser.username)) {
+      setRepliedUser({});
     }
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    if (commentRef.current.value.trim() && !repliedUser) {
+    if (commentRef.current.value.trim() && !repliedUser.username) {
 
       dispatch(
         addComment({
@@ -47,13 +47,14 @@ export const CommentForm = ({ dataUserName, repliedUser, setRepliedUser, id }) =
       );
       setComment("");
 
-    } else if (commentRef.current.value.trim() && repliedUser) {
-      
+    } else if (commentRef.current.value.trim() && repliedUser.username) {
+
       dispatch(
         addReplyComment({
           id: commentRef.current.id,
           comment: commentRef.current.value,
-          repliedUser,
+          repliedUser: repliedUser.username,
+          repliedUserId: repliedUser.id
         })
       );
       setComment("");
@@ -62,11 +63,11 @@ export const CommentForm = ({ dataUserName, repliedUser, setRepliedUser, id }) =
   };
 
   useEffect(() => {
-    if (repliedUser) {
-      setComment("@" + repliedUser);
+    if (repliedUser.username) {
+      setComment("@" + repliedUser.username);
       commentRef.current.focus();
     }
-  }, [repliedUser]);
+  }, [repliedUser.username]);
 
   return (
     <CommentFormWrapper
