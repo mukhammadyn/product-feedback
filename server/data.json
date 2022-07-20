@@ -267,8 +267,8 @@
       "category": "enhancement",
       "upvotes": -1,
       "isUpvoted": false,
-      "status": "suggestion",
-      "description": "Images and screencasts can enhance comments on solutions.",
+      "status": "Suggestion",
+      "description": "sdfdsdsf",
       "comments": [
         {
           "id": 6,
@@ -481,16 +481,6 @@
       "comments": []
     },
     {
-      "id": "2022-06-18T05:29:16.839Z",
-      "title": "Ozgina xatolik chiqibdi",
-      "category": "Enhancement",
-      "upvotes": 0,
-      "isUpvoted": false,
-      "status": "suggestion",
-      "description": "aaaa",
-      "comments": []
-    },
-    {
       "id": "2022-06-18T05:30:00.546Z",
       "title": "Natus debitis eligen",
       "category": "UI",
@@ -562,12 +552,12 @@
     },
     {
       "id": "2022-06-18T05:37:34.365Z",
-      "title": "Earum natus in quia ",
-      "category": "UI",
+      "title": "Errum perrum",
+      "category": "UX",
       "upvotes": 0,
       "isUpvoted": false,
-      "status": "suggestion",
-      "description": "Nam et quia exercita",
+      "status": "In progress",
+      "description": "Erruma perruma serruma",
       "comments": []
     }
   ],

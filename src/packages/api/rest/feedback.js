@@ -60,3 +60,28 @@ export const addFeedback = async (feedback) => {
 
   return data
 }
+
+export const editFeedback = async (editedFeedback) => {
+  const res = await makeRequest({
+    method: 'PATCH',
+    url: `${config}/productRequests/${editedFeedback.id}`,
+    data: JSON.stringify(editedFeedback),
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    }
+  })
+  const data = await res.data
+
+  return data
+}
+
+export const deleteFeedback = async (id) => {
+  const res = await makeRequest({
+    method: 'DELETE',
+    url: `${config}/productRequests/${id}`,
+  })
+  const data = await res.data
+
+  console.log(data);
+  return data
+}

@@ -6,6 +6,8 @@ import {
   fetchFeedback,
   addNewComment as newComment,
   replyComment,
+  editFeedback,
+  deleteFeedback,
 } from "../packages/api/rest/feedback"
 
 export const getFeedbacks = createAsyncThunk(
@@ -31,7 +33,7 @@ export const changeUpvote = createAsyncThunk(
     }
 
     dispatch(addUpvote({ id, upvoteCount }))
-    changeFeedback(id, upvote.isUpvoted === false, upvoteCount)
+    changeFeedback(id, !upvote.isUpvoted, upvoteCount)
   }
 )
 
@@ -110,6 +112,20 @@ export const addNewFeedback = createAsyncThunk(
   }
 );
 
+export const editFeedbackThunk = createAsyncThunk(
+  'edit/feedback',
+  async function (feedback) {
+    editFeedback(feedback)
+  }
+)
+
+export const deleteFeedbackThunk = createAsyncThunk(
+  'delete/feedback',
+  async function (id) {
+    deleteFeedback(id)
+  }
+)
+
 const name = "feedbacks"
 
 const initialState = {
@@ -174,7 +190,7 @@ const feedbackSlice = createSlice({
         (product) => `${product.id}` === `${action.payload.id}`
       );
       currentComment.comments = action.payload.withNewComment;
-    },
+    }
   },
   extraReducers: {
     [getFeedbacks.fulfilled]: (state, action) => {

@@ -29,7 +29,7 @@ export const FeedbackDetail = () => {
   }, [dispatch]);
 
   const feedbacks = useSelector((state) => state.feedbacks.feedbacks);
-  const current = feedbacks.find((fb) => +fb.id === +id);
+  const current = feedbacks.find((fb) => fb.id == id);
 
   const {
     title,
@@ -56,7 +56,7 @@ export const FeedbackDetail = () => {
     <FeedbackDetailMain>
       <FeedbackDetailHeader>
         <FeedbackDetailBackLink to="/">Go back</FeedbackDetailBackLink>
-        <Button text="Edit Feedback" bgColor="#4661E6"></Button>
+        <Button address={`/edit-feedback/${id}`} text="Edit Feedback" isButton={false} bgColor="#4661E6"></Button>
       </FeedbackDetailHeader>
       <FeedbackDetailItem>
         <FeedbackCard

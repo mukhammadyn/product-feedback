@@ -3,7 +3,6 @@ import checkIcon from "@images/icons/icon-check.svg";
 
 export const CustomSelectWrapper = styled.div`
   position: relative;
-  z-index: 10;
 `;
 
 export const CustomSelectSelectedItem = styled.header`
@@ -34,7 +33,7 @@ export const CustomSelectList = styled.ul`
   width: 100%;
 
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   top: calc(100% + 16px);
   left: 0;
 
