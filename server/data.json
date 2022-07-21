@@ -113,8 +113,8 @@
       "id": 2,
       "title": "Add a dark theme option",
       "category": "feature",
-      "upvotes": 57,
-      "isUpvoted": false,
+      "upvotes": 58,
+      "isUpvoted": true,
       "status": "suggestion",
       "description": "It would help people with light sensitivities and who prefer dark mode.",
       "comments": [
@@ -471,94 +471,14 @@
       ]
     },
     {
-      "id": "2022-06-18T05:24:12.559Z",
+      "id": "fa122ef3-55ca-4d09-9429-a898141faef9",
       "title": "Nimasi bu?",
-      "category": "UI",
-      "upvotes": 0,
-      "isUpvoted": false,
-      "status": "suggestion",
-      "description": "Margini ko'payib ketibdi",
-      "comments": []
-    },
-    {
-      "id": "2022-06-18T05:30:00.546Z",
-      "title": "Natus debitis eligen",
-      "category": "UI",
-      "upvotes": 0,
-      "isUpvoted": false,
-      "status": "suggestion",
-      "description": "Eos fugiat quam vel ",
-      "comments": []
-    },
-    {
-      "id": "2022-06-18T05:30:59.135Z",
-      "title": "Qui sunt voluptatum",
-      "category": "UI",
-      "upvotes": 0,
-      "isUpvoted": false,
-      "status": "suggestion",
-      "description": "lk",
-      "comments": []
-    },
-    {
-      "id": "2022-06-18T05:32:57.873Z",
-      "title": "Mollit esse velit om",
-      "category": "UI",
-      "upvotes": 0,
-      "isUpvoted": false,
-      "status": "suggestion",
-      "description": "Voluptatem neque tem",
-      "comments": []
-    },
-    {
-      "id": "2022-06-18T05:33:34.493Z",
-      "title": "Quasi tempor volupta",
-      "category": "UI",
-      "upvotes": 0,
-      "isUpvoted": false,
-      "status": "suggestion",
-      "description": "Cupidatat nihil sint",
-      "comments": []
-    },
-    {
-      "id": "2022-06-18T05:35:56.263Z",
-      "title": "Consequuntur beatae ",
-      "category": "UI",
-      "upvotes": 0,
-      "isUpvoted": false,
-      "status": "suggestion",
-      "description": "Amet quisquam saepe",
-      "comments": []
-    },
-    {
-      "id": "2022-06-18T05:36:35.942Z",
-      "title": "In labore porro cons",
-      "category": "UI",
-      "upvotes": -1,
-      "isUpvoted": false,
-      "status": "suggestion",
-      "description": "Minim earum dolor al",
-      "comments": []
-    },
-    {
-      "id": "2022-06-18T05:37:04.990Z",
-      "title": "Nimasi bu?",
-      "category": "UI",
-      "upvotes": 0,
-      "isUpvoted": false,
-      "status": "suggestion",
-      "description": "asdf",
-      "comments": []
-    },
-    {
-      "id": "2022-06-18T05:37:34.365Z",
-      "title": "Errum perrum",
       "category": "UX",
-      "upvotes": 0,
-      "isUpvoted": false,
-      "status": "In progress",
-      "description": "Erruma perruma serruma",
-      "comments": []
+      "upvotes": 1,
+      "status": "suggestion",
+      "description": "Dabdalasi chiqib yotibdi",
+      "comments": [],
+      "isUpvoted": true
     }
   ],
   "suggestionFilter": [

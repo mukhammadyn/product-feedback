@@ -33,18 +33,12 @@ export const FormFeedbackModal = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const newFeedback = {
-      id: new Date().toISOString(),
-      title: feedbackTitle.current.value,
-      category: feedbackCategory.current.textContent,
-      upvotes: 0,
-      status: "suggestion",
-      description: feedbackDetail.current.value,
-      comments: [],
-    }
-
     dispatch(
-      addNewFeedback(newFeedback)
+      addNewFeedback({
+        title: feedbackTitle.current.value,
+        category: feedbackCategory.current.textContent,
+        description: feedbackDetail.current.value,
+      })
     );
 
     e.target.reset()

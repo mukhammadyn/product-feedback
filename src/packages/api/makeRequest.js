@@ -12,5 +12,7 @@ export default ({
     url,
     headers, 
     data
+  }).catch((error) => {
+    return new Error(error)
   })
 }

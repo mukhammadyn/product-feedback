@@ -8,41 +8,42 @@ import {
   replyComment,
   editFeedback,
   deleteFeedback,
-} from "../packages/api/rest/feedback"
+} from "../packages/api/rest/feedback";
 
 export const getFeedbacks = createAsyncThunk(
   "get/feedbacks",
   async function () {
-    return fetchFeedback()
+    const data = await fetchFeedback();
+    return data;
   }
-)
+);
 
 export const changeUpvote = createAsyncThunk(
   "change/upvote",
   async function (id, { getState, dispatch }) {
-    const feedbacks = getState().feedbacks.feedbacks
+    const feedbacks = getState().feedbacks.feedbacks;
 
-    const upvote = feedbacks.find((feedback) => feedback.id === id)
+    const upvote = feedbacks.find((feedback) => feedback.id === id);
 
-    let upvoteCount = null
+    let upvoteCount = null;
 
     if (upvote.isUpvoted) {
-      upvoteCount = upvote.upvotes - 1
+      upvoteCount = upvote.upvotes - 1;
     } else if (!upvote.isUpvoted) {
-      upvoteCount = upvote.upvotes + 1
+      upvoteCount = upvote.upvotes + 1;
     }
 
-    dispatch(addUpvote({ id, upvoteCount }))
-    changeFeedback(id, !upvote.isUpvoted, upvoteCount)
+    dispatch(addUpvote({ id, upvoteCount }));
+    changeFeedback(id, !upvote.isUpvoted, upvoteCount);
   }
-)
+);
 
 export const addComment = createAsyncThunk(
   "add/comment",
   async function ({ id, comment }, { getState, dispatch }) {
     const commentedProduct = getState().feedbacks.feedbacks.find(
       (feedback) => +feedback.id === +id
-    )
+    );
 
     const createdComment = {
       id: uuidv4(),
@@ -53,10 +54,10 @@ export const addComment = createAsyncThunk(
         name: "You",
         username: "unnamed",
       },
-    }
+    };
 
-    dispatch(addNewComment({ comment, id, newComment: createdComment }))
-    newComment(id, [...commentedProduct.comments, createdComment])
+    dispatch(addNewComment({ comment, id, newComment: createdComment }));
+    newComment(id, [...commentedProduct.comments, createdComment]);
   }
 );
 
@@ -66,8 +67,8 @@ export const addReplyComment = createAsyncThunk(
     { id, comment, repliedUser, repliedUserId },
     { getState, dispatch }
   ) {
-    const checkId = (feedback) => `${feedback.id}` === `${id}`
-    const commentedProduct = getState().feedbacks.feedbacks.find(checkId)
+    const checkId = (feedback) => `${feedback.id}` === `${id}`;
+    const commentedProduct = getState().feedbacks.feedbacks.find(checkId);
     const repliedIndex = commentedProduct.comments?.findIndex(
       (comment) => comment.id == repliedUserId
     );
@@ -83,50 +84,59 @@ export const addReplyComment = createAsyncThunk(
           name: "You",
           username: "unnamed",
         },
-      }
+      };
 
       const clonedComment = JSON.parse(
         JSON.stringify(commentedProduct.comments[repliedIndex])
       );
       clonedComment["replies"]
         ? clonedComment["replies"].push(createdComment)
-        : (clonedComment["replies"] = [createdComment])
+        : (clonedComment["replies"] = [createdComment]);
 
       const withNewComment = [
         ...commentedProduct.comments.slice(0, repliedIndex),
         clonedComment,
         ...commentedProduct.comments.slice(repliedIndex + 1),
-      ]
+      ];
 
-      dispatch(replyNewComment({ id, withNewComment }))
-      replyComment(id, withNewComment)
+      dispatch(replyNewComment({ id, withNewComment }));
+      replyComment(id, withNewComment);
     }
   }
 );
 
 export const addNewFeedback = createAsyncThunk(
   "add/upvote",
-  async function (feedback, { dispatch }) {
-    addFeedback(feedback)
-    dispatch(appendFeedback(feedback))
+  async function ({ title, category, description }, { dispatch }) {
+    const newFeedback = {
+      id: uuidv4(),
+      title,
+      category,
+      upvotes: 0,
+      status: "suggestion",
+      description,
+      comments: [],
+    };
+    addFeedback(newFeedback);
+    dispatch(appendFeedback(newFeedback));
   }
 );
 
 export const editFeedbackThunk = createAsyncThunk(
-  'edit/feedback',
+  "edit/feedback",
   async function (feedback) {
-    editFeedback(feedback)
+    editFeedback(feedback);
   }
-)
+);
 
 export const deleteFeedbackThunk = createAsyncThunk(
-  'delete/feedback',
+  "delete/feedback",
   async function (id) {
-    deleteFeedback(id)
+    deleteFeedback(id);
   }
-)
+);
 
-const name = "feedbacks"
+const name = "feedbacks";
 
 const initialState = {
   loading: false,
@@ -190,11 +200,19 @@ const feedbackSlice = createSlice({
         (product) => `${product.id}` === `${action.payload.id}`
       );
       currentComment.comments = action.payload.withNewComment;
-    }
+    },
   },
   extraReducers: {
+    [getFeedbacks.pending]: (state) => {
+      state.loading = true
+    },
     [getFeedbacks.fulfilled]: (state, action) => {
       state.feedbacks = action.payload;
+      state.loading = false
+    },
+    [getFeedbacks.rejected]: (state) => {
+      state.error = true;
+      state.loading = false;
     },
     [addNewFeedback.pending]: (state) => {
       state.loading = true;
@@ -229,4 +247,4 @@ export const {
   addNewComment,
   replyNewComment,
 } = feedbackSlice.actions;
-export default feedbackSlice.reducer
+export default feedbackSlice.reducer;
