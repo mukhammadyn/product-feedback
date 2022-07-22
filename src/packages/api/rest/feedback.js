@@ -83,7 +83,5 @@ export const deleteFeedback = async (id) => {
     url: `${config}/productRequests/${id}`,
   });
   const data = await res.data;
-
-  console.log(data);
   return data;
 };

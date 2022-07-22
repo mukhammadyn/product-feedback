@@ -13,7 +13,6 @@ import { useCustomSelectProps } from "./custom-select.props";
 export const CustomSelect = hoc(
   useCustomSelectProps,
   ({
-    data,
     defaultVal = "",
     innerRef,
     isOpen,

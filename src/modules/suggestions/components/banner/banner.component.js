@@ -1,8 +1,6 @@
+import hoc from "@utils/hoc";
 import burgerIcon from "@images/icons/icon-hamburger.svg";
 import closeIcon from "@images/icons/icon-close.svg";
-
-import { useState } from "react";
-
 import {
   BannerBurgerBtn,
   BannerHeading,
@@ -10,14 +8,9 @@ import {
   BannerWrapper,
   BannerWrapperContent,
 } from "./banner.style";
+import { useBannerProps } from "./banner.props";
 
-export const Banner = () => {
-  const [isOpen, setOpen] = useState(false);
-
-  const handleBurgerClick = () => {
-    setOpen(!isOpen);
-  };
-
+export const Banner = hoc(useBannerProps, ({ handleBurgerClick, isOpen }) => {
   return (
     <BannerWrapper>
       <BannerWrapperContent>
@@ -36,4 +29,4 @@ export const Banner = () => {
       </BannerBurgerBtn>
     </BannerWrapper>
   );
-};
+});

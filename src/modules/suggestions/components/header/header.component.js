@@ -1,4 +1,5 @@
 import { Button } from "@atoms/button";
+import hoc from "@utils/hoc";
 import {
   HeaderSuggestionCount,
   HeaderSuggestionSort,
@@ -6,9 +7,9 @@ import {
 } from "./header.style";
 import lampIcon from "@images/icon-suggestions.svg";
 import { SortSelect } from "../sort-select";
+import { useHeaderProps } from "./header.props";
 
-export const Header = () => {
-  const count = 6;
+export const Header = hoc(useHeaderProps, ({count}) => {
   return (
     <HeaderWrapper>
       <img src={lampIcon} alt="lamp" />
@@ -23,4 +24,4 @@ export const Header = () => {
       />
     </HeaderWrapper>
   );
-};
+});
