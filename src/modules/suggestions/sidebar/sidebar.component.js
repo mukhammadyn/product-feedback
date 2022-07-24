@@ -1,6 +1,6 @@
 import { Banner } from "../components/banner";
 import { Card } from "../components/card";
-import { SideBarInner, SidebarWrapper } from "./sidebar.style";
+import { CardDd, CardDl, CardDlContent, CardDt, CardHeader, CardHeading, CardLink, SideBarInner, SidebarWrapper } from "./sidebar.style";
 import { Badge } from "@atoms/badge";
 import { useSidebarProps } from "./sidebar.props";
 import hoc from "@utils/hoc";
@@ -23,6 +23,26 @@ export const Sidebar = hoc(
                 isActive={category.isActive}
               />
             ))}
+          </Card>
+          <Card flexed={false} onClick={handleCategoryFilter}>
+            <CardHeader>
+              <CardHeading>Roadmap</CardHeading>
+              <CardLink to="/roadmap">View</CardLink>
+            </CardHeader>
+            <CardDl>
+              <CardDlContent color={'#F49F85'}>
+                <CardDt>Planned</CardDt>
+                <CardDd>2</CardDd>
+              </CardDlContent>
+              <CardDlContent color={'#AD1FEA'}>
+                <CardDt>In-Progress</CardDt>
+                <CardDd>2</CardDd>
+              </CardDlContent>
+              <CardDlContent color={'#62BCFA'}>
+                <CardDt>Live</CardDt>
+                <CardDd>2</CardDd>
+              </CardDlContent>
+            </CardDl>
           </Card>
         </SideBarInner>
       </SidebarWrapper>

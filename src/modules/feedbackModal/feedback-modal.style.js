@@ -8,15 +8,20 @@ export const FeedbackModalWrapper = styled.div`
   margin: 0 auto;
 `
 
-export const FeedbackModalBackLink = styled(Link)`
+export const FeedbackModalBackLink = styled.button`
   display: inline-flex;
   align-items: center;
 
   margin-bottom: 68px;
+  padding: 0;
 
   font: var(--font-bolder-sm-style);
   text-decoration: none;
   color: var(--color-button-ocean);
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 
   &:before {
     width: 7px;

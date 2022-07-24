@@ -1,11 +1,16 @@
+import hoc from "@utils/hoc";
 import { FormFeedbackModal } from "./components/formModal";
-import { FeedbackModalBackLink, FeedbackModalWrapper } from "./feedback-modal.style";
+import { useFeedbackModalProps } from "./feedback-modal.props";
+import {
+  FeedbackModalBackLink,
+  FeedbackModalWrapper,
+} from "./feedback-modal.style";
 
-export const FeedbackModal = () => {
+export const FeedbackModal = hoc(useFeedbackModalProps, ({handleBtnClick}) => {
   return (
     <FeedbackModalWrapper>
-      <FeedbackModalBackLink to='/'>Go Back</FeedbackModalBackLink>
+      <FeedbackModalBackLink onClick={handleBtnClick} to="/">Go Back</FeedbackModalBackLink>
       <FormFeedbackModal />
     </FeedbackModalWrapper>
   );
-};
+});

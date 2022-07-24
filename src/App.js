@@ -3,6 +3,7 @@ import { Container } from "./components/global-components/container";
 import { EditFeedback } from "./modules/edit-feedback";
 import { FeedbackDetail } from "./modules/feedback-detail";
 import { FeedbackModal } from "./modules/feedbackModal";
+import { RoadMap } from "./modules/roadmap";
 import { Suggestion } from "./modules/suggestions";
 function App() {
 
@@ -10,9 +11,10 @@ function App() {
     <Container>
       <Routes>
         <Route path="/" element={<Suggestion />} />
-        <Route path="feedback-detail/:id" element={<FeedbackDetail />} />
-        <Route path="new-feedback" element={<FeedbackModal />} />
-        <Route path="edit-feedback/:id" element={<EditFeedback />} />
+        <Route path="/feedback-detail/:id" element={<FeedbackDetail />} />
+        <Route path="/new-feedback" element={<FeedbackModal />} />
+        <Route path="/edit-feedback/:id" element={<EditFeedback />} />
+        <Route path="/roadmap" element={<RoadMap />} />
         <Route path="*" element={<Suggestion />} />
       </Routes>
     </Container>

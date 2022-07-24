@@ -160,6 +160,8 @@ const feedbackSlice = createSlice({
       state.feedbacks.push(action.payload);
     },
     sortFeedback(state, action) {
+      const commentAccumulator = (n, current) =>
+        (n += current.replies?.length || 1);
       switch (action.payload) {
         case 1: {
           state.feedbacks.sort((a, b) => b.upvotes - a.upvotes);
@@ -171,13 +173,17 @@ const feedbackSlice = createSlice({
         }
         case 3: {
           state.feedbacks.sort(
-            (a, b) => b.comments?.length - a.comments?.length
+            (a, b) =>
+              b.comments?.reduce(commentAccumulator, 0) -
+              a.comments?.reduce(commentAccumulator, 0)
           );
           break;
         }
         case 4: {
           state.feedbacks.sort(
-            (a, b) => a.comments?.length - b.comments?.length
+            (a, b) =>
+              a.comments?.reduce(commentAccumulator, 0) -
+              b.comments?.reduce(commentAccumulator, 0)
           );
           break;
         }
@@ -204,11 +210,11 @@ const feedbackSlice = createSlice({
   },
   extraReducers: {
     [getFeedbacks.pending]: (state) => {
-      state.loading = true
+      state.loading = true;
     },
     [getFeedbacks.fulfilled]: (state, action) => {
       state.feedbacks = action.payload;
-      state.loading = false
+      state.loading = false;
     },
     [getFeedbacks.rejected]: (state) => {
       state.error = true;
