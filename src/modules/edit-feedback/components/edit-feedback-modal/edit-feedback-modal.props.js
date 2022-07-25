@@ -19,7 +19,7 @@ export const useEditFeedbackModalProps = () => {
   const feedbackStatus = useRef();
   const feedbackDetail = useRef();
 
-  const current = feedbacks.find((fb) => fb.id == id);
+  const current = feedbacks.find((fb) => `${fb.id}` === `${id}`);
 
   const { title, description, category } = current || {};
 

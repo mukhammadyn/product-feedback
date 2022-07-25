@@ -70,7 +70,7 @@ export const addReplyComment = createAsyncThunk(
     const checkId = (feedback) => `${feedback.id}` === `${id}`;
     const commentedProduct = getState().feedbacks.feedbacks.find(checkId);
     const repliedIndex = commentedProduct.comments?.findIndex(
-      (comment) => comment.id == repliedUserId
+      (comment) => `${comment.id}` === `${repliedUserId}`
     );
 
     if (repliedIndex !== -1) {

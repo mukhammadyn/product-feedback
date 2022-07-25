@@ -14,7 +14,7 @@ export const useFeedbackDetailProps = () => {
   }, [dispatch]);
 
   const feedbacks = useSelector((state) => state.feedbacks.feedbacks);
-  const current = feedbacks.find((fb) => fb.id == id);
+  const current = feedbacks.find((fb) => `${fb.id}` === `${id}`);
 
   const {
     title,
