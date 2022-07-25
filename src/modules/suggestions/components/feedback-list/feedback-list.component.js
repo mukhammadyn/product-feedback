@@ -4,7 +4,7 @@ import { FeedbackListWrapper } from "./feedback-list.style";
 import { useFeedbackListProps } from "./feedback-list.props";
 import hoc from "@utils/hoc"
 
-export const FeedbackList = hoc(useFeedbackListProps, ({ feedbacksList }) => {
+export const FeedbackList = hoc(useFeedbackListProps, ({ feedbacksList, commentCount }) => {
   return (
     <FeedbackListWrapper>
       {feedbacksList.length > 0 ? (
@@ -18,15 +18,6 @@ export const FeedbackList = hoc(useFeedbackListProps, ({ feedbacksList }) => {
             category,
             comments,
           }) => {
-            const commentCount =
-              comments?.reduce(
-                (prev, current) =>
-                  current.replies
-                    ? (prev += current.replies.length + 1)
-                    : (prev += 1),
-                0
-              ) ?? 0;
-
             return (
               <FeedbackCard
                 isUpvoted={isUpvoted}
@@ -34,7 +25,7 @@ export const FeedbackList = hoc(useFeedbackListProps, ({ feedbacksList }) => {
                 key={id}
                 title={title}
                 description={description}
-                commentCount={commentCount}
+                commentCount={commentCount(comments)}
                 importanceCount={upvotes}
                 badgeText={category}
               />

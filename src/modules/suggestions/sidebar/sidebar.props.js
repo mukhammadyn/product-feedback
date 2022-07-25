@@ -5,6 +5,11 @@ import { getCategories, setCategory } from "@store/category.slice";
 export const useSidebarProps = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.categories);
+  const statusFeedbacks = useSelector((state) =>
+    state.feedbacks.feedbacks.filter(
+      (feedback) => feedback.status !== "suggestion"
+    )
+  );
   const [isActive, setActive] = useState(true);
 
   useEffect(() => {
@@ -25,9 +30,29 @@ export const useSidebarProps = () => {
     }
   };
 
+  const planned = [];
+  const progress = [];
+  const live = [];
+
+  const checkStatus = (status, checkStatus) => {
+    return status.toLowerCase() === checkStatus;
+  };
+
+  statusFeedbacks.forEach((statusFeedback) => {
+    if (checkStatus(statusFeedback.status, "planned"))
+      planned.push(statusFeedback);
+    else if (checkStatus(statusFeedback.status, "in-progress"))
+      progress.push(statusFeedback);
+    else if (checkStatus(statusFeedback.status, "live"))
+      live.push(statusFeedback);
+  });
+
   return {
     categories,
     isActive,
-    handleCategoryFilter
+    handleCategoryFilter,
+    planned: planned.length,
+    progress: progress.length,
+    live: live.length,
   };
 };

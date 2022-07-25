@@ -4,10 +4,16 @@ export const ImportanceBtn = styled.button`
   width: 40px;
   height: 53px;
 
+  display: inline-block;
+
   position: relative;
   z-index: 10;
 
   padding: 15px 0 8px 0;
+  
+  ${props => props.isSmall && `{width: 69px; height: 40px; padding: 11px 0 10px 0;}`}
+  ${props => props.isSmall && `& ${ImportanceBtnInner} {flex-direction: row; justify-content: center;}`}
+  ${props => props.isSmall && `& ${ImportanceCount} {margin-top: 0; margin-left: 10px;}`}
 
   font-weight: 700;
   font-size: 13px;

@@ -23,7 +23,7 @@ export const changeUpvote = createAsyncThunk(
   async function (id, { getState, dispatch }) {
     const feedbacks = getState().feedbacks.feedbacks;
 
-    const upvote = feedbacks.find((feedback) => feedback.id === id);
+    const upvote = feedbacks.find((feedback) => `${feedback.id}` === `${id}`);
 
     let upvoteCount = null;
 
@@ -142,6 +142,7 @@ const initialState = {
   loading: false,
   error: null,
   feedbacks: [],
+  feedbacksStatus: [],
 };
 
 const feedbackSlice = createSlice({

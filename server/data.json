@@ -412,8 +412,8 @@
       "id": 9,
       "title": "One-click portfolio generation",
       "category": "feature",
-      "upvotes": 62,
-      "isUpvoted": false,
+      "upvotes": 63,
+      "isUpvoted": true,
       "status": "in-progress",
       "description": "Add ability to create professional looking portfolio from profile.",
       "comments": [
@@ -424,7 +424,19 @@
             "image": "https://raw.githubusercontent.com/mukhammadyn/product-images/main/user-images/image-ryan.jpg",
             "name": "Ryan Welles",
             "username": "voyager.344"
-          }
+          },
+          "replies": [
+            {
+              "content": "bir ikki uch",
+              "id": "d4caaa8e-3a88-437c-bff1-eeb1bef1ecb9",
+              "replyingTo": "voyager.344",
+              "user": {
+                "image": "https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?ssl=1",
+                "name": "You",
+                "username": "unnamed"
+              }
+            }
+          ]
         }
       ]
     },
