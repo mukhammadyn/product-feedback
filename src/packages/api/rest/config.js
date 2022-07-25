@@ -1,1 +1,1 @@
-export const config = 'http://localhost:3001'
+export const config = 'https://product-feedback-app-nm.herokuapp.com'
