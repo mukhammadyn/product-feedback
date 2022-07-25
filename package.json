@@ -22,8 +22,6 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "dev": "concurrently 'npm run server' 'npm run start'",
-    "server": "json-server --watch server/data.json -p 3001",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
