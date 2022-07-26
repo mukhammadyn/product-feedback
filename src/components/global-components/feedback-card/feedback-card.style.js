@@ -13,11 +13,19 @@ export const FeedbackCardWrapper = styled.div`
 
   background-color: #fff;
   border-radius: 10px;
+
+  @media only screen and (max-width: 700px) {
+    align-items: flex-end;
+  }
 `
 
 export const FeedbackContent = styled.div`
   display: flex;
   align-items: flex-start;
+
+  @media only screen and (max-width: 700px) {
+    flex-direction: column-reverse;
+  }
 `
 
 export const FeedbackCardContent = styled(Link)`
@@ -37,6 +45,11 @@ export const FeedbackCardContent = styled(Link)`
 
     content: '';
   }
+
+  @media only screen and (max-width: 700px) {
+    margin-left: 0;
+    margin-bottom: 16px;
+  }
 `
 
 export const FeedbackCardTitle = styled.h3`
@@ -45,6 +58,11 @@ export const FeedbackCardTitle = styled.h3`
 
   font: var(--font-bolder-xl-style);
   letter-spacing: -0.25px;
+
+  @media only screen and (max-width: 450px) {
+    font-size: var(--font-bold-size);
+    line-height: 18px;
+  }
 `
 
 export const FeedbackCardDesc = styled.p`
@@ -52,4 +70,9 @@ export const FeedbackCardDesc = styled.p`
   margin-bottom: 12px;
 
   font: var(--font-secondary-style);
+
+  @media only screen and (max-width: 450px) {
+    font-size: 13px;
+    line-height: 19px;
+  }
 `

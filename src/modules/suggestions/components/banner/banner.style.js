@@ -10,6 +10,20 @@ export const BannerWrapper = styled.div`
 
   background-image: var(--primary-gradient);
   border-radius: 10px;
+
+  @media only screen and (max-width: 990px) {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  @media only screen and (max-width: 700px) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 26px 15px 24px;
+    border-radius: 0;
+  }
 `;
 
 export const BannerWrapperContent = styled.div``;
@@ -43,7 +57,7 @@ export const BannerBurgerBtn = styled.button`
   background-color: transparent;
   border: none;
 
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 700px) {
     display: inline-block;
   }
 `;

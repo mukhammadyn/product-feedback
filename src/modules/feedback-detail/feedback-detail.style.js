@@ -7,6 +7,10 @@ export const FeedbackDetailMain = styled.main`
   margin: 0 auto;
 
   padding-bottom: 272px;
+
+  @media only screen and (max-width: 700px) {
+    padding: 24px 24px 272px 24px;
+  }
 `
 
 export const FeedbackDetailHeader = styled.header`

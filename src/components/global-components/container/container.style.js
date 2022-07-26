@@ -6,4 +6,9 @@ export const ContainerWrapper = styled.div`
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
+
+  @media only screen and (max-width: 700px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `

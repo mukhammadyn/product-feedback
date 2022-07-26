@@ -1,13 +1,15 @@
-import { Main } from "./main"
-import { Sidebar } from "./sidebar"
-import { SuggestionMain } from "./suggestion.style"
+import { NavToggleContextProvider } from "./context/nav-context";
+import { Main } from "./main";
+import { Sidebar } from "./sidebar";
+import { SuggestionMain } from "./suggestion.style";
 
 export const Suggestion = () => {
-
-  return(
+  return (
     <SuggestionMain>
-      <Sidebar />
+      <NavToggleContextProvider>
+        <Sidebar />
+      </NavToggleContextProvider>
       <Main />
     </SuggestionMain>
-  )
-}
+  );
+};

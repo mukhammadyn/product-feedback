@@ -14,7 +14,8 @@ export const FormInput = styled.input`
 `;
 
 export const FormTextarea = styled.textarea`
-  width: 456px;
+  width: 100%;
+  max-width: 456px;
   height: 96px;
 
   padding: 13px 24px;

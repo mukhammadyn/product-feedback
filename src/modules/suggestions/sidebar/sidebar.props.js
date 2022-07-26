@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories, setCategory } from "@store/category.slice";
+import { NavToggleContext } from "../context/nav-context";
 
 export const useSidebarProps = () => {
   const dispatch = useDispatch();
@@ -47,6 +48,8 @@ export const useSidebarProps = () => {
       live.push(statusFeedback);
   });
 
+  const {open} = useContext(NavToggleContext)
+
   return {
     categories,
     isActive,
@@ -54,5 +57,6 @@ export const useSidebarProps = () => {
     planned: planned.length,
     progress: progress.length,
     live: live.length,
+    open,
   };
 };

@@ -10,7 +10,7 @@ import {
 } from "./banner.style";
 import { useBannerProps } from "./banner.props";
 
-export const Banner = hoc(useBannerProps, ({ handleBurgerClick, isOpen }) => {
+export const Banner = hoc(useBannerProps, ({ handleBurgerClick, open }) => {
   return (
     <BannerWrapper>
       <BannerWrapperContent>
@@ -20,7 +20,7 @@ export const Banner = hoc(useBannerProps, ({ handleBurgerClick, isOpen }) => {
       <BannerBurgerBtn onClick={handleBurgerClick}>
         {
           <img
-            src={isOpen ? closeIcon : burgerIcon}
+            src={open ? closeIcon : burgerIcon}
             alt="modal toggler"
             width="20"
             height="17"

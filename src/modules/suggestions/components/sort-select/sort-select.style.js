@@ -6,6 +6,10 @@ export const SortSelectWrapper = styled.div`
   width: 255px;
   position: relative;
   z-index: 10;
+
+  @media only screen and (max-width: 410px) {
+    width: 200px;
+  }
 `;
 
 export const SortSelectHeader = styled.header``;
@@ -30,11 +34,11 @@ export const SortSelectCurrentTypeInner = styled.span`
   line-height: 20px;
   font-weight: 700;
   color: #f2f4fe;
-
-  opacity: 0.75;
+  
 
   & span {
     font-weight: 400;
+    opacity: 0.75;
   }
 
   &::after {

@@ -24,6 +24,13 @@ export const ButtonWrapper = styled.button`
 
   ${props => props.isDisabled && 'background-color: var(--color-disabled);'}
 
+  @media only screen and (max-width: 450px) {
+    padding: 12px 16px;
+
+    font-size: 13px;
+    line-height: 19px;
+  }
+
 `
 
 export const LinkWrapper = styled(Link)`
@@ -45,5 +52,12 @@ export const LinkWrapper = styled(Link)`
 
   &:hover {
     background-color: ${props => props.hover};
+  }
+
+  @media only screen and (max-width: 450px) {
+    padding: 12px 16px;
+    
+    font-size: 13px;
+    line-height: 19px;
   }
 `

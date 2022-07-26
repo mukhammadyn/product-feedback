@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { NavToggleContext } from "../../context/nav-context";
 
 export const useBannerProps = () => {
-  const [isOpen, setOpen] = useState(false);
+
+  const {open, setOpen} = useContext(NavToggleContext)
 
   const handleBurgerClick = () => {
-    setOpen(!isOpen);
+    setOpen(!open);
   };
 
   return {
-    isOpen,
+    open,
     setOpen,
     handleBurgerClick
   }

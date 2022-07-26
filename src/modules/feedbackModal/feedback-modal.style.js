@@ -5,6 +5,10 @@ import arrowIcon from '@images/icons/icon-arrow-left.svg'
 export const FeedbackModalWrapper = styled.div`
   max-width: 540px;
   margin: 0 auto;
+
+  @media only screen and (max-width: 700px) {
+    padding: 34px 24px 0 24px;
+  }
 `
 
 export const FeedbackModalBackLink = styled.button`
