@@ -1,7 +1,7 @@
 import { Button } from "@atoms/button/button.component";
 import { RoadMapCard } from "./components/roadmap-card";
 import { useRoadMapProps } from "./roadmap.props";
-import hoc from "@utils/hoc"
+import hoc from "@utils/hoc";
 import {
   RoadMapBoard,
   RoadMapBoardItem,
@@ -15,12 +15,23 @@ import {
   RoadMapItem,
   RoadMapList,
   RoadMapMain,
+  RoadMapNav,
+  RoadMapNavBtn,
+  RoadMapNavItem,
+  RoadMapNavList,
   RoadMapSection,
 } from "./roadmap.style";
 
 export const RoadMap = hoc(
   useRoadMapProps,
-  ({ planned, commentCount, progress, live }) => {
+  ({
+    planned,
+    commentCount,
+    progress,
+    live,
+    activeRoadMap,
+    handleButtonClick,
+  }) => {
     return (
       <RoadMapSection>
         <RoadMapHeader>
@@ -34,9 +45,22 @@ export const RoadMap = hoc(
             text="+ Add Feedback"
           />
         </RoadMapHeader>
+        <RoadMapNav>
+          <RoadMapNavList onClick={handleButtonClick}>
+            <RoadMapNavItem>
+              <RoadMapNavBtn active={activeRoadMap} roadMap="planned" data-type="planned">Planned ({planned.length})</RoadMapNavBtn>
+            </RoadMapNavItem>
+            <RoadMapNavItem>
+              <RoadMapNavBtn active={activeRoadMap} roadMap="progress" data-type="progress">In-Progress ({progress.length})</RoadMapNavBtn>
+            </RoadMapNavItem>
+            <RoadMapNavItem>
+              <RoadMapNavBtn active={activeRoadMap} roadMap="live" data-type="live">Live ({live.length})</RoadMapNavBtn>
+            </RoadMapNavItem>
+          </RoadMapNavList>
+        </RoadMapNav>
         <RoadMapMain>
           <RoadMapBoard>
-            <RoadMapBoardItem>
+            <RoadMapBoardItem active={activeRoadMap} roadMap="planned">
               <RoadMapBoardItemTop>
                 <RoadMapBoardItemHeading>
                   Planned ({planned.length})
@@ -71,7 +95,7 @@ export const RoadMap = hoc(
                 )}
               </RoadMapList>
             </RoadMapBoardItem>
-            <RoadMapBoardItem>
+            <RoadMapBoardItem active={activeRoadMap} roadMap="progress">
               <RoadMapBoardItemTop>
                 <RoadMapBoardItemHeading>
                   In-Progress ({progress.length})
@@ -106,7 +130,7 @@ export const RoadMap = hoc(
                 )}
               </RoadMapList>
             </RoadMapBoardItem>
-            <RoadMapBoardItem>
+            <RoadMapBoardItem active={activeRoadMap} roadMap="live">
               <RoadMapBoardItemTop>
                 <RoadMapBoardItemHeading>
                   Live ({live.length})

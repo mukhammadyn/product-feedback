@@ -51,6 +51,11 @@ export const RoadMapCardHeading = styled.h4`
     text-decoration: none;
     color: var(--color-primary);
   }
+
+  @media only screen and (max-width: 870px) {
+    font-size: 13px;
+    line-height: 19px;
+  }
 `
 
 export const RoadMapCardDesc = styled.p`
@@ -58,6 +63,11 @@ export const RoadMapCardDesc = styled.p`
   margin-bottom: 16px;
 
   font: var(--font-secondary-style);
+
+  @media only screen and (max-width: 870px) {
+    font-size: 13px;
+    line-height: 19px;
+  }
 `
 
 export const RoadMapCardBottom = styled.div`

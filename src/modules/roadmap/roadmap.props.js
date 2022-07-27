@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getFeedbacks } from "@store/feedback.slice";
+import { useState } from "react";
 
 export const useRoadMapProps = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,14 @@ export const useRoadMapProps = () => {
   const planned = [];
   const progress = [];
   const live = [];
+
+  const [activeRoadMap, setActiveRoadMap] = useState("planned");
+
+  const handleButtonClick = (e) => {
+    if(e.target.matches('button[data-type]')) {
+      setActiveRoadMap(e.target.dataset.type)
+    }
+  }
 
   const checkStatus = (status, checkStatus) => {
     return status.toLowerCase() === checkStatus;
@@ -57,5 +66,8 @@ export const useRoadMapProps = () => {
     commentCount,
     progress,
     live,
+    activeRoadMap,
+    setActiveRoadMap,
+    handleButtonClick,
   };
 };
