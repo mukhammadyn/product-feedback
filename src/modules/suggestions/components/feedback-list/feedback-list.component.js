@@ -3,6 +3,7 @@ import { FeedbackCard } from "@global-components/feedback-card";
 import { FeedbackListWrapper } from "./feedback-list.style";
 import { useFeedbackListProps } from "./feedback-list.props";
 import hoc from "@utils/hoc"
+import getCommentCount from "@utils/getCommentCount";
 
 export const FeedbackList = hoc(useFeedbackListProps, ({ feedbacksList, commentCount }) => {
   return (
@@ -25,7 +26,7 @@ export const FeedbackList = hoc(useFeedbackListProps, ({ feedbacksList, commentC
                 key={id}
                 title={title}
                 description={description}
-                commentCount={commentCount(comments)}
+                commentCount={getCommentCount(comments)}
                 importanceCount={upvotes}
                 badgeText={category}
               />

@@ -2,6 +2,7 @@ import { Button } from "@atoms/button/button.component";
 import { RoadMapCard } from "./components/roadmap-card";
 import { useRoadMapProps } from "./roadmap.props";
 import hoc from "@utils/hoc";
+import getCommentCount from "@utils/getCommentCount";
 import {
   RoadMapBoard,
   RoadMapBoardItem,
@@ -26,7 +27,6 @@ export const RoadMap = hoc(
   useRoadMapProps,
   ({
     planned,
-    commentCount,
     progress,
     live,
     activeRoadMap,
@@ -86,7 +86,7 @@ export const RoadMap = hoc(
                         upvotes={upvotes}
                         description={description}
                         isUpvoted={isUpvoted}
-                        commentCount={commentCount(comments)}
+                        commentCount={getCommentCount(comments)}
                         id={id}
                         status="planned"
                       ></RoadMapCard>
@@ -121,7 +121,7 @@ export const RoadMap = hoc(
                         upvotes={upvotes}
                         description={description}
                         isUpvoted={isUpvoted}
-                        commentCount={commentCount(comments)}
+                        commentCount={getCommentCount(comments)}
                         id={id}
                         status="progress"
                       ></RoadMapCard>
@@ -155,7 +155,7 @@ export const RoadMap = hoc(
                         upvotes={upvotes}
                         description={description}
                         isUpvoted={isUpvoted}
-                        commentCount={commentCount(comments)}
+                        commentCount={getCommentCount(comments)}
                         status="live"
                       ></RoadMapCard>
                     </RoadMapItem>

@@ -6,13 +6,13 @@ export const useFeedbackListProps = ({ feedbacks }) => {
 
   const [feedbacksList, setFeedbacksList] = useState(feedbacks || []);
 
-  const commentCount = (comments) => {
-    return comments?.reduce(
-      (prev, current) =>
-        current.replies ? (prev += current.replies.length + 1) : (prev += 1),
-      0
-    ) ?? 0;
-  };
+  // const commentCount = (comments) => {
+  //   return comments?.reduce(
+  //     (prev, current) =>
+  //       current.replies ? (prev += current.replies.length + 1) : (prev += 1),
+  //     0
+  //   ) ?? 0;
+  // };
 
   useEffect(() => {
     if (category === "All") {
@@ -29,6 +29,5 @@ export const useFeedbackListProps = ({ feedbacks }) => {
 
   return {
     feedbacksList,
-    commentCount,
   };
 };

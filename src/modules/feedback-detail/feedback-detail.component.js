@@ -1,6 +1,7 @@
 import hoc from "@utils/hoc"
+import getCommentCount from "@utils/getCommentCount";
 import { Button } from "@atoms/button";
-import { FeedbackCard } from "../../components/global-components/feedback-card/feedback-card.component";
+import { FeedbackCard } from "@global-components/feedback-card/feedback-card.component";
 import { CommentItemComponent } from "./comment-item/comment-item.component";
 import { CommentForm } from "./components/comment-form/comment-form.component";
 import { useFeedbackDetailProps } from "./feedback-detail.props";
@@ -47,7 +48,7 @@ export const FeedbackDetail = hoc(
             title={title}
             description={description}
             importanceCount={importanceCount}
-            commentCount={comments?.length}
+            commentCount={getCommentCount(comments)}
             isUpvoted={isUpvoted}
             id={cardId}
           />

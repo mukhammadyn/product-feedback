@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories, setCategory } from "@store/category.slice";
 import { NavToggleContext } from "../context/nav-context";
+import sortFeedbackStatus from "@utils/sortFeedbackStatus";
 
 export const useSidebarProps = () => {
   const dispatch = useDispatch();
@@ -31,24 +32,9 @@ export const useSidebarProps = () => {
     }
   };
 
-  const planned = [];
-  const progress = [];
-  const live = [];
+  const { planned, progress, live } = sortFeedbackStatus(statusFeedbacks);
 
-  const checkStatus = (status, checkStatus) => {
-    return status.toLowerCase() === checkStatus;
-  };
-
-  statusFeedbacks.forEach((statusFeedback) => {
-    if (checkStatus(statusFeedback.status, "planned"))
-      planned.push(statusFeedback);
-    else if (checkStatus(statusFeedback.status, "in-progress"))
-      progress.push(statusFeedback);
-    else if (checkStatus(statusFeedback.status, "live"))
-      live.push(statusFeedback);
-  });
-
-  const {open} = useContext(NavToggleContext)
+  const { open } = useContext(NavToggleContext);
 
   return {
     categories,

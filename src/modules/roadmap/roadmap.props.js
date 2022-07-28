@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getFeedbacks } from "@store/feedback.slice";
 import { useState } from "react";
+import sortFeedbackStatus from "@utils/sortFeedbackStatus";
 
 export const useRoadMapProps = () => {
   const dispatch = useDispatch();
@@ -18,10 +19,6 @@ export const useRoadMapProps = () => {
     }
   };
 
-  const planned = [];
-  const progress = [];
-  const live = [];
-
   const [activeRoadMap, setActiveRoadMap] = useState("planned");
 
   const handleButtonClick = (e) => {
@@ -30,18 +27,7 @@ export const useRoadMapProps = () => {
     }
   }
 
-  const checkStatus = (status, checkStatus) => {
-    return status.toLowerCase() === checkStatus;
-  };
-
-  statusFeedbacks.forEach((statusFeedback) => {
-    if (checkStatus(statusFeedback.status, "planned"))
-      planned.push(statusFeedback);
-    else if (checkStatus(statusFeedback.status, "in-progress"))
-      progress.push(statusFeedback);
-    else if (checkStatus(statusFeedback.status, "live"))
-      live.push(statusFeedback);
-  });
+  const { planned, progress, live } = sortFeedbackStatus(statusFeedbacks);
 
   sortByUpvote(planned);
   sortByUpvote(progress);
@@ -51,19 +37,8 @@ export const useRoadMapProps = () => {
     dispatch(getFeedbacks());
   }, [dispatch]);
 
-  const commentCount = (comments) => {
-    return (
-      comments?.reduce(
-        (prev, current) =>
-          current.replies ? (prev += current.replies.length + 1) : (prev += 1),
-        0
-      ) ?? 0
-    );
-  };
-
   return {
     planned,
-    commentCount,
     progress,
     live,
     activeRoadMap,

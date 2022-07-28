@@ -62,7 +62,7 @@ export const addComment = createAsyncThunk(
 );
 
 export const addReplyComment = createAsyncThunk(
-  "add/comment",
+  "feedback/addReplyComment",
   async function (
     { id, comment, repliedUser, repliedUserId },
     { getState, dispatch }
