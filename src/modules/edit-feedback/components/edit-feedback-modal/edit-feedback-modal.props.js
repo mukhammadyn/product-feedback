@@ -4,6 +4,7 @@ import { getCategories } from "@store/category.slice";
 
 import { useNavigate, useParams } from "react-router-dom";
 import { editFeedbackThunk, deleteFeedbackThunk } from "@store/feedback.slice";
+import { getFeedbacksStatus } from "@store/feedback.slice";
 
 export const useEditFeedbackModalProps = () => {
   const { id } = useParams();
@@ -12,7 +13,7 @@ export const useEditFeedbackModalProps = () => {
   const feedbacks = useSelector((state) => state.feedbacks.feedbacks);
 
   const categories = useSelector((state) => state.categories.categories);
-  const isLoading = useSelector((state) => state.feedbacks.loading);
+  const feedbacksStatus = useSelector(getFeedbacksStatus);
 
   const feedbackCategory = useRef();
   const feedbackTitle = useRef();
@@ -74,7 +75,7 @@ export const useEditFeedbackModalProps = () => {
     feedbackStatus,
     feedbackDetail,
     categories,
-    isLoading,
+    feedbacksStatus,
     title,
     description,
     category,

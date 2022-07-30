@@ -1,20 +1,23 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getFeedbacks } from "@store/feedback.slice";
+import { getFeedbacksStatus } from "@store/feedback.slice";
 
 export const useMainProps = () => {
   const dispatch = useDispatch();
   const feedbacks = useSelector((state) => state.feedbacks.feedbacks);
-  const loading = useSelector((state) => state.feedbacks.loading);
+  const feedbacksStatus = useSelector(getFeedbacksStatus);
 
   useEffect(() => {
-    dispatch(getFeedbacks());
 
-    return () => null;
-  }, [dispatch]);
+    if(feedbacksStatus === 'idle') {
+      dispatch(getFeedbacks());
+    }
+
+  }, [feedbacksStatus, dispatch]);
 
   return {
     feedbacks,
-    loading
+    feedbacksStatus,
   }
 };

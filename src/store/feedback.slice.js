@@ -11,7 +11,7 @@ import {
 } from "../packages/api/rest/feedback";
 
 export const getFeedbacks = createAsyncThunk(
-  "get/feedbacks",
+  "feedbacks/getFeedbacks",
   async function () {
     const data = await fetchFeedback();
     return data;
@@ -19,7 +19,7 @@ export const getFeedbacks = createAsyncThunk(
 );
 
 export const changeUpvote = createAsyncThunk(
-  "change/upvote",
+  "feedbacks/changeUpvote",
   async function (id, { getState, dispatch }) {
     const feedbacks = getState().feedbacks.feedbacks;
 
@@ -39,7 +39,7 @@ export const changeUpvote = createAsyncThunk(
 );
 
 export const addComment = createAsyncThunk(
-  "add/comment",
+  "feedback/addComment",
   async function ({ id, comment }, { getState, dispatch }) {
     const commentedProduct = getState().feedbacks.feedbacks.find(
       (feedback) => +feedback.id === +id
@@ -62,7 +62,7 @@ export const addComment = createAsyncThunk(
 );
 
 export const addReplyComment = createAsyncThunk(
-  "feedback/addReplyComment",
+  "feedbacks/addReplyComment",
   async function (
     { id, comment, repliedUser, repliedUserId },
     { getState, dispatch }
@@ -106,7 +106,7 @@ export const addReplyComment = createAsyncThunk(
 );
 
 export const addNewFeedback = createAsyncThunk(
-  "add/upvote",
+  "feedbacks/addNewFeedback",
   async function ({ title, category, description }, { dispatch }) {
     const newFeedback = {
       id: uuidv4(),
@@ -123,7 +123,7 @@ export const addNewFeedback = createAsyncThunk(
 );
 
 export const editFeedbackThunk = createAsyncThunk(
-  "edit/feedback",
+  "feedback/editFeedbackThunk",
   async function (feedback) {
     editFeedback(feedback);
   }
@@ -139,7 +139,7 @@ export const deleteFeedbackThunk = createAsyncThunk(
 const name = "feedbacks";
 
 const initialState = {
-  loading: false,
+  status: 'idle',
   error: null,
   feedbacks: [],
   feedbacksStatus: [],
@@ -211,38 +211,38 @@ const feedbackSlice = createSlice({
   },
   extraReducers: {
     [getFeedbacks.pending]: (state) => {
-      state.loading = true;
+      state.status = 'loading';
     },
     [getFeedbacks.fulfilled]: (state, action) => {
       state.feedbacks = action.payload;
-      state.loading = false;
+      state.status = 'success';
     },
     [getFeedbacks.rejected]: (state) => {
       state.error = true;
-      state.loading = false;
+      state.status = 'rejected';
     },
     [addNewFeedback.pending]: (state) => {
-      state.loading = true;
+      state.status = 'loading';
     },
     [addNewFeedback.fulfilled]: (state) => {
-      state.loading = false;
+      state.status = 'success';
     },
     [addComment.pending]: (state) => {
-      state.loading = false;
+      state.status = 'loading';
     },
     [addComment.fulfilled]: (state) => {
-      state.loading = false;
+      state.status = 'success';
     },
     [addComment.rejected]: (state, action) => {
       console.error(action.error.message);
-      state.loading = false;
+      state.status = 'rejected';
     },
     [addReplyComment.rejected]: (state, action) => {
       console.error(action.error.message);
-      state.loading = false;
+      state.status = 'rejected';
     },
-    [addReplyComment.fulfilled]: (state, action) => {
-      state.loading = false;
+    [addReplyComment.fulfilled]: (state) => {
+      state.status = 'success';
     },
   },
 });
@@ -254,4 +254,7 @@ export const {
   addNewComment,
   replyNewComment,
 } = feedbackSlice.actions;
+
 export default feedbackSlice.reducer;
+
+export const getFeedbacksStatus = (state) => state.feedbacks.status

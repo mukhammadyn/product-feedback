@@ -4,11 +4,11 @@ import { MainWrapper } from "./main.style";
 import { useMainProps } from "./main.props";
 import hoc from "@utils/hoc";
 
-export const Main = hoc(useMainProps, ({loading, feedbacks}) => {
+export const Main = hoc(useMainProps, ({feedbacksStatus, feedbacks}) => {
   return (
     <MainWrapper>
       <Header feedbacks={feedbacks} />
-      {loading ? <b>Loading...</b> : <FeedbackList feedbacks={feedbacks} />}
+      {feedbacksStatus === 'loading' ? <b>Loading...</b> : <FeedbackList feedbacks={feedbacks} />}
     </MainWrapper>
   );
 });
