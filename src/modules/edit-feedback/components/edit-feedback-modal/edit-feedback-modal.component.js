@@ -16,7 +16,7 @@ export const EditFeedbackModal = hoc(
   useEditFeedbackModalProps,
   ({
     categories,
-    isLoading,
+    feedbacksStatus,
     title,
     description,
     category,
@@ -32,7 +32,7 @@ export const EditFeedbackModal = hoc(
       <EditFeedbackModalWrapper
         action="#"
         method="POST"
-        isLoading={isLoading}
+        isLoading={feedbacksStatus === 'loading'}
         onSubmit={handleFormSubmit}
       >
         <EditFeedbackModalIcon />

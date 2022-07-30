@@ -5,7 +5,7 @@ import { useFeedbackListProps } from "./feedback-list.props";
 import hoc from "@utils/hoc"
 import getCommentCount from "@utils/getCommentCount";
 
-export const FeedbackList = hoc(useFeedbackListProps, ({ feedbacksList, commentCount }) => {
+export const FeedbackList = hoc(useFeedbackListProps, ({ feedbacksList }) => {
   return (
     <FeedbackListWrapper>
       {feedbacksList.length > 0 ? (
